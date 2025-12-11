@@ -1,96 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
-
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Windows 95 Color Palette */
+    --background: 0 0% 75%;
+    --foreground: 0 0% 0%;
+    
+    --card: 0 0% 75%;
+    --card-foreground: 0 0% 0%;
+    
+    --popover: 0 0% 75%;
+    --popover-foreground: 0 0% 0%;
+    
+    /* Title bar blue */
+    --primary: 240 100% 25%;
+    --primary-foreground: 0 0% 100%;
+    
+    /* Button face gray */
+    --secondary: 0 0% 75%;
+    --secondary-foreground: 0 0% 0%;
+    
+    --muted: 0 0% 50%;
+    --muted-foreground: 0 0% 100%;
+    
+    --accent: 180 100% 25%;
+    --accent-foreground: 0 0% 100%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    /* Windows 95 specific */
+    --win95-gray: 0 0% 75%;
+    --win95-dark-gray: 0 0% 50%;
+    --win95-light-gray: 0 0% 87%;
+    --win95-white: 0 0% 100%;
+    --win95-black: 0 0% 0%;
+    --win95-blue: 240 100% 25%;
+    --win95-teal: 180 100% 25%;
+    
+    /* 3D Border Colors */
+    --border-light: 0 0% 100%;
+    --border-dark: 0 0% 25%;
+    --border-medium: 0 0% 50%;
+    
+    --border: 0 0% 50%;
+    --input: 0 0% 100%;
+    --ring: 240 100% 25%;
+    --radius: 0px;
+    
+    --sidebar-background: 0 0% 75%;
+    --sidebar-foreground: 0 0% 0%;
+    --sidebar-primary: 240 100% 25%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 87%;
+    --sidebar-accent-foreground: 0 0% 0%;
+    --sidebar-border: 0 0% 50%;
+    --sidebar-ring: 240 100% 25%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --background: 0 0% 75%;
+    --foreground: 0 0% 0%;
+    --card: 0 0% 75%;
+    --card-foreground: 0 0% 0%;
+    --popover: 0 0% 75%;
+    --popover-foreground: 0 0% 0%;
+    --primary: 240 100% 25%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 75%;
+    --secondary-foreground: 0 0% 0%;
+    --muted: 0 0% 50%;
+    --muted-foreground: 0 0% 100%;
+    --accent: 180 100% 25%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 50%;
+    --input: 0 0% 100%;
+    --ring: 240 100% 25%;
   }
 }
 
@@ -101,5 +92,252 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'VT323', 'MS Sans Serif', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
+}
+
+/* Windows 95 3D Border Effect */
+.win95-border-outset {
+  border: 2px solid;
+  border-color: hsl(var(--border-light)) hsl(var(--border-dark)) hsl(var(--border-dark)) hsl(var(--border-light));
+}
+
+.win95-border-inset {
+  border: 2px solid;
+  border-color: hsl(var(--border-dark)) hsl(var(--border-light)) hsl(var(--border-light)) hsl(var(--border-dark));
+}
+
+.win95-button {
+  background: hsl(var(--win95-gray));
+  border: 2px solid;
+  border-color: hsl(var(--border-light)) hsl(var(--border-dark)) hsl(var(--border-dark)) hsl(var(--border-light));
+  padding: 2px 8px;
+  font-family: 'VT323', monospace;
+  font-size: 16px;
+  cursor: pointer;
+  min-width: 75px;
+}
+
+.win95-button:active {
+  border-color: hsl(var(--border-dark)) hsl(var(--border-light)) hsl(var(--border-light)) hsl(var(--border-dark));
+  padding: 3px 7px 1px 9px;
+}
+
+.win95-button:focus {
+  outline: 1px dotted hsl(var(--win95-black));
+  outline-offset: -4px;
+}
+
+.win95-titlebar {
+  background: linear-gradient(90deg, hsl(var(--win95-blue)) 0%, hsl(180 100% 35%) 100%);
+  color: hsl(var(--win95-white));
+  padding: 2px 4px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  user-select: none;
+}
+
+.win95-titlebar-inactive {
+  background: linear-gradient(90deg, hsl(0 0% 50%) 0%, hsl(0 0% 65%) 100%);
+}
+
+.win95-window {
+  background: hsl(var(--win95-gray));
+  border: 2px solid;
+  border-color: hsl(var(--border-light)) hsl(var(--border-dark)) hsl(var(--border-dark)) hsl(var(--border-light));
+  box-shadow: 2px 2px 0px hsl(var(--win95-black));
+}
+
+.win95-input {
+  background: hsl(var(--win95-white));
+  border: 2px solid;
+  border-color: hsl(var(--border-dark)) hsl(var(--border-light)) hsl(var(--border-light)) hsl(var(--border-dark));
+  padding: 2px 4px;
+  font-family: 'VT323', monospace;
+}
+
+.win95-menubar {
+  background: hsl(var(--win95-gray));
+  border-bottom: 1px solid hsl(var(--border-dark));
+  padding: 2px;
+}
+
+.win95-statusbar {
+  background: hsl(var(--win95-gray));
+  border-top: 2px solid;
+  border-color: hsl(var(--border-dark)) transparent transparent hsl(var(--border-dark));
+  padding: 2px 4px;
+  font-size: 14px;
+}
+
+.win95-desktop-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4px;
+  cursor: pointer;
+  color: white;
+  text-shadow: 1px 1px 1px black;
+  width: 80px;
+  text-align: center;
+}
+
+.win95-desktop-icon:hover {
+  background: rgba(0, 0, 128, 0.3);
+}
+
+.win95-desktop-icon.selected {
+  background: hsl(var(--win95-blue));
+}
+
+.win95-scrollbar::-webkit-scrollbar {
+  width: 16px;
+  height: 16px;
+}
+
+.win95-scrollbar::-webkit-scrollbar-track {
+  background: hsl(var(--win95-light-gray));
+  border: 1px solid hsl(var(--border-dark));
+}
+
+.win95-scrollbar::-webkit-scrollbar-thumb {
+  background: hsl(var(--win95-gray));
+  border: 2px solid;
+  border-color: hsl(var(--border-light)) hsl(var(--border-dark)) hsl(var(--border-dark)) hsl(var(--border-light));
+}
+
+.win95-scrollbar::-webkit-scrollbar-button {
+  background: hsl(var(--win95-gray));
+  border: 2px solid;
+  border-color: hsl(var(--border-light)) hsl(var(--border-dark)) hsl(var(--border-dark)) hsl(var(--border-light));
+}
+
+/* Start Menu Styles */
+.win95-start-menu {
+  background: hsl(var(--win95-gray));
+  border: 2px solid;
+  border-color: hsl(var(--border-light)) hsl(var(--border-dark)) hsl(var(--border-dark)) hsl(var(--border-light));
+  box-shadow: 2px 2px 0px hsl(var(--win95-black));
+}
+
+.win95-start-item {
+  padding: 4px 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.win95-start-item:hover {
+  background: hsl(var(--win95-blue));
+  color: white;
+}
+
+/* Pixel-perfect checkbox */
+.win95-checkbox {
+  width: 13px;
+  height: 13px;
+  border: 2px solid;
+  border-color: hsl(var(--border-dark)) hsl(var(--border-light)) hsl(var(--border-light)) hsl(var(--border-dark));
+  background: white;
+  appearance: none;
+  cursor: pointer;
+}
+
+.win95-checkbox:checked::after {
+  content: '✓';
+  display: block;
+  text-align: center;
+  font-size: 10px;
+  line-height: 9px;
+}
+
+/* Game specific styles */
+.minesweeper-cell {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.minesweeper-cell.unrevealed {
+  @apply win95-border-outset;
+  background: hsl(var(--win95-gray));
+}
+
+.minesweeper-cell.revealed {
+  @apply win95-border-inset;
+  background: hsl(var(--win95-light-gray));
+}
+
+.tetris-cell {
+  width: 24px;
+  height: 24px;
+  border: 1px solid rgba(0,0,0,0.2);
+}
+
+.chess-cell {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+}
+
+.chess-light {
+  background: #f0d9b5;
+}
+
+.chess-dark {
+  background: #b58863;
+}
+
+.chess-selected {
+  background: #829769 !important;
+}
+
+.chess-valid-move {
+  position: relative;
+}
+
+.chess-valid-move::after {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: rgba(0, 128, 0, 0.4);
+  border-radius: 50%;
+}
+
+/* Card game styles */
+.playing-card {
+  width: 71px;
+  height: 96px;
+  background: white;
+  border: 1px solid black;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  padding: 2px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.card-back {
+  background: linear-gradient(45deg, #1e3a5f 25%, #2d5a87 25%, #2d5a87 50%, #1e3a5f 50%, #1e3a5f 75%, #2d5a87 75%);
+  background-size: 8px 8px;
+}
+
+.card-red {
+  color: #cc0000;
+}
+
+.card-black {
+  color: #000000;
 }
