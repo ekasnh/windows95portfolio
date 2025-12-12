@@ -30,8 +30,12 @@ interface WindowContextType {
 const WindowContext = createContext<WindowContextType | undefined>(undefined);
 
 const WALLPAPERS = [
+  '/wallpapers/default.png',
   '/wallpapers/wallpaper1.jpg',
   '/wallpapers/wallpaper2.png',
+  '/wallpapers/clouds.jpg',
+  '/wallpapers/forest.jpg',
+  '/wallpapers/bubbles.jpg',
 ];
 
 export const WindowProvider: React.FC<{ children: ReactNode }> = ({ children }) => {

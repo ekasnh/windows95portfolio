@@ -30,13 +30,13 @@ export const DesktopIcon: React.FC<DesktopIconProps> = ({ icon, label, onDoubleC
 
   return (
     <div
-      className={`win95-desktop-icon ${isSelected ? 'selected' : ''}`}
+      className={`win95-desktop-icon ${isSelected ? 'selected' : ''} transition-colors duration-75`}
       onClick={handleClick}
       onBlur={() => setIsSelected(false)}
       tabIndex={0}
     >
-      <div className="text-4xl mb-1">{icon}</div>
-      <span className="text-xs font-win95 leading-tight">{label}</span>
+      <div className="text-3xl mb-0.5 drop-shadow-md">{icon}</div>
+      <span className="text-[11px] leading-tight drop-shadow-md">{label}</span>
     </div>
   );
 };

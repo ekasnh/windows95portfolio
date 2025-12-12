@@ -54,16 +54,19 @@ export const WallpaperWindow: React.FC = () => {
         </div>
 
         {/* Wallpaper List */}
-        <div className="win95-border-inset bg-win95-white p-2 max-h-32 overflow-y-auto">
-          {wallpapers.map((wp, index) => (
-            <div 
-              key={index}
-              className={`p-1 cursor-pointer ${selectedIndex === index ? 'bg-primary text-primary-foreground' : 'hover:bg-secondary'}`}
-              onClick={() => setSelectedIndex(index)}
-            >
-              Wallpaper {index + 1}
-            </div>
-          ))}
+        <div className="win95-border-inset bg-white p-1 max-h-32 overflow-y-auto">
+          {wallpapers.map((wp, index) => {
+            const name = wp.split('/').pop()?.replace(/\.(jpg|png|jpeg)$/i, '') || `Wallpaper ${index + 1}`;
+            return (
+              <div 
+                key={index}
+                className={`p-1 cursor-pointer text-sm ${selectedIndex === index ? 'bg-[#000080] text-white' : 'hover:bg-[#000080] hover:text-white'}`}
+                onClick={() => setSelectedIndex(index)}
+              >
+                {name.charAt(0).toUpperCase() + name.slice(1)}
+              </div>
+            );
+          })}
         </div>
 
         {/* Buttons */}
