@@ -9,7 +9,9 @@ import {
   Mail, 
   ExternalLink,
   ChevronRight,
-  GraduationCap
+  GraduationCap,
+  Pencil,
+  Image
 } from 'lucide-react';
 
 interface StartMenuProps {
@@ -44,62 +46,58 @@ export const StartMenu: React.FC<StartMenuProps> = ({ isOpen, onClose }) => {
   };
 
   return (
-    <div className="win95-start-menu absolute bottom-10 left-0 w-64" style={{ zIndex: 9999 }}>
+    <div 
+      className="win95-start-menu absolute bottom-10 left-0 w-56 animate-slide-up"
+      style={{ zIndex: 9999 }}
+    >
       {/* Windows 95 side banner */}
       <div className="flex">
-        <div className="bg-gradient-to-b from-primary to-accent w-8 flex items-end justify-center pb-2">
-          <span className="text-primary-foreground text-xs font-bold transform -rotate-90 whitespace-nowrap origin-center">
+        <div className="bg-gradient-to-b from-[#000080] to-[#1084d0] w-7 flex items-end justify-center pb-2">
+          <span className="text-white text-[10px] font-bold transform -rotate-90 whitespace-nowrap origin-center tracking-wide">
             Windows<span className="font-normal">95</span>
           </span>
         </div>
         
-        <div className="flex-1">
+        <div className="flex-1 py-1">
           {/* Programs with submenu */}
           <div 
             className="win95-start-item relative"
             onMouseEnter={() => setActiveSubmenu('programs')}
             onMouseLeave={() => setActiveSubmenu(null)}
           >
-            <FolderOpen size={20} />
-            <span className="flex-1 font-win95">Programs</span>
-            <ChevronRight size={16} />
+            <FolderOpen size={18} />
+            <span className="flex-1 text-sm">Programs</span>
+            <ChevronRight size={14} />
             
             {activeSubmenu === 'programs' && (
-              <div className="win95-start-menu absolute left-full top-0 w-48">
+              <div className="win95-start-menu absolute left-full top-0 w-44 animate-fade-in">
                 <div 
                   className="win95-start-item"
-                  onClick={() => handleOpenWindow('minesweeper', 'Minesweeper', { width: 300, height: 380 })}
+                  onClick={() => handleOpenWindow('games-folder', 'Games', { width: 400, height: 350 })}
                 >
                   <Gamepad2 size={16} />
-                  <span className="font-win95">Minesweeper</span>
+                  <span className="text-sm">Games</span>
                 </div>
                 <div 
                   className="win95-start-item"
-                  onClick={() => handleOpenWindow('tetris', 'Tetris', { width: 320, height: 500 })}
+                  onClick={() => handleOpenWindow('notepad', 'Untitled - Notepad', { width: 500, height: 400 })}
                 >
-                  <Gamepad2 size={16} />
-                  <span className="font-win95">Tetris</span>
+                  <FileText size={16} />
+                  <span className="text-sm">Notepad</span>
                 </div>
                 <div 
                   className="win95-start-item"
-                  onClick={() => handleOpenWindow('solitaire', 'Solitaire', { width: 700, height: 550 })}
+                  onClick={() => handleOpenWindow('paint', 'untitled - Paint', { width: 550, height: 450 })}
                 >
-                  <Gamepad2 size={16} />
-                  <span className="font-win95">Solitaire</span>
+                  <Pencil size={16} />
+                  <span className="text-sm">Paint</span>
                 </div>
                 <div 
                   className="win95-start-item"
-                  onClick={() => handleOpenWindow('pong', 'Pong', { width: 500, height: 400 })}
+                  onClick={() => handleOpenWindow('gallery', 'My Pictures', { width: 450, height: 400 })}
                 >
-                  <Gamepad2 size={16} />
-                  <span className="font-win95">Pong</span>
-                </div>
-                <div 
-                  className="win95-start-item"
-                  onClick={() => handleOpenWindow('chess', 'Chess', { width: 450, height: 500 })}
-                >
-                  <Gamepad2 size={16} />
-                  <span className="font-win95">Chess</span>
+                  <Image size={16} />
+                  <span className="text-sm">Gallery</span>
                 </div>
               </div>
             )}
@@ -111,15 +109,15 @@ export const StartMenu: React.FC<StartMenuProps> = ({ isOpen, onClose }) => {
             onMouseEnter={() => setActiveSubmenu('documents')}
             onMouseLeave={() => setActiveSubmenu(null)}
           >
-            <FolderOpen size={20} />
-            <span className="flex-1 font-win95">Documents</span>
-            <ChevronRight size={16} />
+            <FolderOpen size={18} />
+            <span className="flex-1 text-sm">Documents</span>
+            <ChevronRight size={14} />
             
             {activeSubmenu === 'documents' && (
-              <div className="win95-start-menu absolute left-full top-0 w-48">
+              <div className="win95-start-menu absolute left-full top-0 w-44 animate-fade-in">
                 <div className="win95-start-item" onClick={handleDownloadResume}>
                   <FileText size={16} />
-                  <span className="font-win95">Download Resume</span>
+                  <span className="text-sm">Download Resume</span>
                 </div>
               </div>
             )}
@@ -131,32 +129,32 @@ export const StartMenu: React.FC<StartMenuProps> = ({ isOpen, onClose }) => {
             onMouseEnter={() => setActiveSubmenu('settings')}
             onMouseLeave={() => setActiveSubmenu(null)}
           >
-            <Settings size={20} />
-            <span className="flex-1 font-win95">Settings</span>
-            <ChevronRight size={16} />
+            <Settings size={18} />
+            <span className="flex-1 text-sm">Settings</span>
+            <ChevronRight size={14} />
             
             {activeSubmenu === 'settings' && (
-              <div className="win95-start-menu absolute left-full top-0 w-48">
+              <div className="win95-start-menu absolute left-full top-0 w-44 animate-fade-in">
                 <div 
                   className="win95-start-item"
-                  onClick={() => handleOpenWindow('wallpaper', 'Display Properties', { width: 400, height: 350 })}
+                  onClick={() => handleOpenWindow('wallpaper', 'Display Properties', { width: 400, height: 380 })}
                 >
                   <Settings size={16} />
-                  <span className="font-win95">Change Wallpaper</span>
+                  <span className="text-sm">Display</span>
                 </div>
               </div>
             )}
           </div>
 
-          <div className="border-t border-muted my-1" />
+          <div className="h-px bg-[#808080] mx-1 my-1" />
 
           {/* Portfolio */}
           <div 
             className="win95-start-item"
             onClick={() => handleOpenWindow('portfolio', 'Portfolio - Ekansh Agarwal', { width: 600, height: 500 })}
           >
-            <User size={20} />
-            <span className="font-win95">Portfolio</span>
+            <User size={18} />
+            <span className="text-sm">Portfolio</span>
           </div>
 
           {/* About */}
@@ -164,8 +162,8 @@ export const StartMenu: React.FC<StartMenuProps> = ({ isOpen, onClose }) => {
             className="win95-start-item"
             onClick={() => handleOpenWindow('about', 'About Me', { width: 500, height: 450 })}
           >
-            <User size={20} />
-            <span className="font-win95">About Me</span>
+            <User size={18} />
+            <span className="text-sm">About Me</span>
           </div>
 
           {/* Contact */}
@@ -173,35 +171,35 @@ export const StartMenu: React.FC<StartMenuProps> = ({ isOpen, onClose }) => {
             className="win95-start-item"
             onClick={() => handleOpenWindow('contact', 'Contact', { width: 400, height: 300 })}
           >
-            <Mail size={20} />
-            <span className="font-win95">Contact</span>
+            <Mail size={18} />
+            <span className="text-sm">Contact</span>
           </div>
 
-          <div className="border-t border-muted my-1" />
+          <div className="h-px bg-[#808080] mx-1 my-1" />
 
           {/* External Links */}
           <div 
             className="win95-start-item"
             onClick={() => handleExternalLink('https://github.com/ekasnh')}
           >
-            <ExternalLink size={20} />
-            <span className="font-win95">GitHub</span>
+            <ExternalLink size={18} />
+            <span className="text-sm">GitHub</span>
           </div>
 
           <div 
             className="win95-start-item"
             onClick={() => handleExternalLink('https://www.linkedin.com/in/ekansh-agarwal01/')}
           >
-            <ExternalLink size={20} />
-            <span className="font-win95">LinkedIn</span>
+            <ExternalLink size={18} />
+            <span className="text-sm">LinkedIn</span>
           </div>
 
           <div 
             className="win95-start-item"
             onClick={() => handleExternalLink('https://scholar.google.com/citations?user=xDg34AYAAAAJ&hl=en&authuser=1')}
           >
-            <GraduationCap size={20} />
-            <span className="font-win95">Google Scholar</span>
+            <GraduationCap size={18} />
+            <span className="text-sm">Google Scholar</span>
           </div>
         </div>
       </div>

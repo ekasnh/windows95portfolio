@@ -78,40 +78,40 @@ export const Window: React.FC<WindowProps> = ({ id, children, icon, menuBar }) =
   return (
     <div
       ref={windowRef}
-      className="win95-window flex flex-col"
+      className="win95-window flex flex-col animate-window-open"
       style={style}
       onClick={() => focusWindow(id)}
     >
       {/* Title Bar */}
       <div
-        className={`win95-titlebar ${!isActive ? 'win95-titlebar-inactive' : ''} cursor-move`}
+        className={`win95-titlebar ${!isActive ? 'win95-titlebar-inactive' : ''} cursor-move select-none`}
         onMouseDown={handleMouseDown}
       >
-        <div className="flex items-center gap-2">
-          {icon && <span className="text-sm">{icon}</span>}
-          <span className="text-sm font-win95">{windowState.title}</span>
+        <div className="flex items-center gap-1">
+          {icon && <span className="text-xs">{icon}</span>}
+          <span className="text-xs font-bold truncate">{windowState.title}</span>
         </div>
-        <div className="flex gap-[2px]">
+        <div className="flex gap-px">
           <button
-            className="win95-button !min-w-[16px] !p-0 w-4 h-4 flex items-center justify-center"
+            className="win95-button !min-w-[14px] !p-0 w-[14px] h-[14px] flex items-center justify-center"
             onClick={(e) => { e.stopPropagation(); minimizeWindow(id); }}
           >
-            <Minus size={10} />
+            <Minus size={8} strokeWidth={3} />
           </button>
           <button
-            className="win95-button !min-w-[16px] !p-0 w-4 h-4 flex items-center justify-center"
+            className="win95-button !min-w-[14px] !p-0 w-[14px] h-[14px] flex items-center justify-center"
             onClick={(e) => { 
               e.stopPropagation(); 
               windowState.isMaximized ? restoreWindow(id) : maximizeWindow(id); 
             }}
           >
-            <Square size={8} />
+            <Square size={7} strokeWidth={2} />
           </button>
           <button
-            className="win95-button !min-w-[16px] !p-0 w-4 h-4 flex items-center justify-center"
+            className="win95-button !min-w-[14px] !p-0 w-[14px] h-[14px] flex items-center justify-center"
             onClick={(e) => { e.stopPropagation(); closeWindow(id); }}
           >
-            <X size={10} />
+            <X size={9} strokeWidth={3} />
           </button>
         </div>
       </div>
@@ -124,7 +124,7 @@ export const Window: React.FC<WindowProps> = ({ id, children, icon, menuBar }) =
       )}
 
       {/* Content */}
-      <div className="flex-1 overflow-auto bg-secondary win95-scrollbar p-1">
+      <div className="flex-1 overflow-auto bg-secondary win95-scrollbar">
         {children}
       </div>
     </div>
