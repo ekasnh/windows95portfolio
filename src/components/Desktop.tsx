@@ -16,12 +16,14 @@ import { GalleryWindow } from './windows/GalleryWindow';
 import { GamesFolderWindow } from './windows/GamesFolderWindow';
 import { CalculatorWindow } from './windows/CalculatorWindow';
 import { YouTubeWindow } from './windows/YouTubeWindow';
+import { FileExplorerWindow } from './windows/FileExplorerWindow';
+import { MusicPlayerWindow } from './windows/MusicPlayerWindow';
 import { MinesweeperGame } from './games/MinesweeperGame';
 import { TetrisGame } from './games/TetrisGame';
 import { SolitaireGame } from './games/SolitaireGame';
 import { PongGame } from './games/PongGame';
 import { ChessGame } from './games/ChessGame';
-import { User, Mail, FileText, Monitor } from 'lucide-react';
+import { User, Mail, FileText, Monitor, Folder, Music } from 'lucide-react';
 
 export const Desktop: React.FC = () => {
   const { openWindow, wallpaper, windows } = useWindows();
@@ -135,6 +137,16 @@ export const Desktop: React.FC = () => {
             label="Easter Egg"
             onDoubleClick={() => setErrorMessage("Fatal Exception: You must hire me! Contact: ekanshagarwal9090@gmail.com")}
           />
+          <DesktopIcon
+            icon={<Folder size={28} className="text-yellow-400 drop-shadow-lg" />}
+            label="My Computer"
+            onDoubleClick={() => openWindow('explorer', 'My Computer', { width: 500, height: 400 })}
+          />
+          <DesktopIcon
+            icon={<Music size={28} className="text-purple-400 drop-shadow-lg" />}
+            label="Media Player"
+            onDoubleClick={() => openWindow('musicplayer', 'Media Player', { width: 320, height: 380 })}
+          />
         </div>
 
         {/* Context Menu */}
@@ -157,6 +169,8 @@ export const Desktop: React.FC = () => {
         {windows.find(w => w.id === 'games-folder') && <GamesFolderWindow />}
         {windows.find(w => w.id === 'calculator') && <CalculatorWindow />}
         {windows.find(w => w.id === 'youtube') && <YouTubeWindow />}
+        {windows.find(w => w.id === 'explorer') && <FileExplorerWindow />}
+        {windows.find(w => w.id === 'musicplayer') && <MusicPlayerWindow />}
         {windows.find(w => w.id === 'minesweeper') && <MinesweeperGame />}
         {windows.find(w => w.id === 'tetris') && <TetrisGame />}
         {windows.find(w => w.id === 'solitaire') && <SolitaireGame />}

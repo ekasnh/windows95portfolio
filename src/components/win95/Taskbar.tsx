@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useWindows } from '@/contexts/WindowContext';
 import { StartMenu } from './StartMenu';
-import { Wifi } from 'lucide-react';
+import { Wifi, Bluetooth } from 'lucide-react';
 
 interface TaskbarProps {
   onLock: () => void;
@@ -94,6 +94,13 @@ export const Taskbar: React.FC<TaskbarProps> = ({ onLock, onShutdown, onShowErro
 
         {/* System Tray */}
         <div className="win95-border-inset px-2 h-6 flex items-center gap-2 bg-[#c0c0c0]">
+          <button
+            className="hover:bg-[#d0d0d0] p-0.5 rounded-sm"
+            onClick={() => window.open('https://github.com/ekasnh', '_blank')}
+            title="Bluetooth - Connected to Devices"
+          >
+            <Bluetooth size={12} />
+          </button>
           <button
             className="hover:bg-[#d0d0d0] p-0.5 rounded-sm"
             onClick={() => window.open('https://www.linkedin.com/in/ekansh-agarwal01/', '_blank')}
