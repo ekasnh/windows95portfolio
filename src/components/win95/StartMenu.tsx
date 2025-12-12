@@ -20,9 +20,10 @@ interface StartMenuProps {
   isOpen: boolean;
   onClose: () => void;
   onLock: () => void;
+  onShutdown: () => void;
 }
 
-export const StartMenu: React.FC<StartMenuProps> = ({ isOpen, onClose, onLock }) => {
+export const StartMenu: React.FC<StartMenuProps> = ({ isOpen, onClose, onLock, onShutdown }) => {
   const { openWindow } = useWindows();
   const [activeSubmenu, setActiveSubmenu] = useState<string | null>(null);
 
@@ -50,6 +51,11 @@ export const StartMenu: React.FC<StartMenuProps> = ({ isOpen, onClose, onLock })
 
   const handleLock = () => {
     onLock();
+    onClose();
+  };
+
+  const handleShutdown = () => {
+    onShutdown();
     onClose();
   };
 
@@ -106,6 +112,20 @@ export const StartMenu: React.FC<StartMenuProps> = ({ isOpen, onClose, onLock })
                 >
                   <Image size={16} />
                   <span className="text-sm">Gallery</span>
+                </div>
+                <div 
+                  className="win95-start-item"
+                  onClick={() => handleOpenWindow('calculator', 'Calculator', { width: 240, height: 280 })}
+                >
+                  <span className="text-sm">🧮</span>
+                  <span className="text-sm">Calculator</span>
+                </div>
+                <div 
+                  className="win95-start-item"
+                  onClick={() => handleOpenWindow('youtube', 'YouTube - Ekansh Agarwal', { width: 450, height: 400 })}
+                >
+                  <span className="text-sm">📺</span>
+                  <span className="text-sm">YouTube</span>
                 </div>
               </div>
             )}
@@ -219,6 +239,15 @@ export const StartMenu: React.FC<StartMenuProps> = ({ isOpen, onClose, onLock })
           >
             <Lock size={18} />
             <span className="text-sm">Lock</span>
+          </div>
+
+          {/* Shut Down */}
+          <div 
+            className="win95-start-item"
+            onClick={handleShutdown}
+          >
+            <Power size={18} />
+            <span className="text-sm">Shut Down...</span>
           </div>
         </div>
       </div>

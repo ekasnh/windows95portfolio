@@ -4,6 +4,15 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Windows 95 Custom Cursor */
+* {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='24' viewBox='0 0 16 24'%3E%3Cpath d='M0 0 L0 20 L4 16 L7 22 L10 21 L7 15 L12 15 Z' fill='white' stroke='black' stroke-width='1'/%3E%3C/svg%3E") 0 0, auto;
+}
+
+button, a, [role="button"] {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='24' viewBox='0 0 16 24'%3E%3Cpath d='M0 0 L0 20 L4 16 L7 22 L10 21 L7 15 L12 15 Z' fill='white' stroke='black' stroke-width='1'/%3E%3C/svg%3E") 0 0, pointer;
+}
+
 @layer base {
   :root {
     /* Windows 95 Color Palette */
@@ -384,4 +393,13 @@
 
 .animate-window-open {
   animation: window-open 0.1s ease-out;
+}
+
+@keyframes shutdown-progress {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
 }

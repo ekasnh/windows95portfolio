@@ -4,6 +4,8 @@ import { DesktopIcon } from './win95/DesktopIcon';
 import { Taskbar } from './win95/Taskbar';
 import { ContextMenu } from './win95/ContextMenu';
 import { LockScreen } from './win95/LockScreen';
+import { ErrorDialog } from './win95/ErrorDialog';
+import { ShutdownScreen } from './ShutdownScreen';
 import { PortfolioWindow } from './windows/PortfolioWindow';
 import { AboutWindow } from './windows/AboutWindow';
 import { ContactWindow } from './windows/ContactWindow';
@@ -12,17 +14,21 @@ import { NotepadWindow } from './windows/NotepadWindow';
 import { PaintWindow } from './windows/PaintWindow';
 import { GalleryWindow } from './windows/GalleryWindow';
 import { GamesFolderWindow } from './windows/GamesFolderWindow';
+import { CalculatorWindow } from './windows/CalculatorWindow';
+import { YouTubeWindow } from './windows/YouTubeWindow';
 import { MinesweeperGame } from './games/MinesweeperGame';
 import { TetrisGame } from './games/TetrisGame';
 import { SolitaireGame } from './games/SolitaireGame';
 import { PongGame } from './games/PongGame';
 import { ChessGame } from './games/ChessGame';
-import { User, Mail, FileText } from 'lucide-react';
+import { User, Mail, FileText, Monitor } from 'lucide-react';
 
 export const Desktop: React.FC = () => {
   const { openWindow, wallpaper, windows } = useWindows();
   const [contextMenu, setContextMenu] = useState<{ x: number; y: number } | null>(null);
   const [isLocked, setIsLocked] = useState(false);
+  const [isShuttingDown, setIsShuttingDown] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const handleDownloadResume = () => {
     const link = document.createElement('a');
@@ -43,9 +49,25 @@ export const Desktop: React.FC = () => {
     setContextMenu({ x: e.clientX, y: e.clientY });
   };
 
+  const handleShutdown = () => {
+    setIsShuttingDown(true);
+  };
+
+  const handleShutdownComplete = () => {
+    // Reload the page to simulate restart
+    window.location.reload();
+  };
+
   return (
     <>
+      {isShuttingDown && <ShutdownScreen onComplete={handleShutdownComplete} />}
       {isLocked && <LockScreen onUnlock={() => setIsLocked(false)} />}
+      {errorMessage && (
+        <ErrorDialog 
+          message={errorMessage} 
+          onClose={() => setErrorMessage(null)} 
+        />
+      )}
       
       <div 
         className="fixed inset-0 overflow-hidden"
@@ -98,6 +120,21 @@ export const Desktop: React.FC = () => {
             label="Gallery"
             onDoubleClick={() => openWindow('gallery', 'My Pictures', { width: 450, height: 400 })}
           />
+          <DesktopIcon
+            icon={<span className="text-2xl drop-shadow-lg">🧮</span>}
+            label="Calculator"
+            onDoubleClick={() => openWindow('calculator', 'Calculator', { width: 240, height: 280 })}
+          />
+          <DesktopIcon
+            icon={<span className="text-2xl drop-shadow-lg">📺</span>}
+            label="YouTube"
+            onDoubleClick={() => openWindow('youtube', 'YouTube - Ekansh Agarwal', { width: 450, height: 400 })}
+          />
+          <DesktopIcon
+            icon={<Monitor size={28} className="text-white drop-shadow-lg" />}
+            label="Easter Egg"
+            onDoubleClick={() => setErrorMessage("Fatal Exception: You must hire me! Contact: ekanshagarwal9090@gmail.com")}
+          />
         </div>
 
         {/* Context Menu */}
@@ -118,6 +155,8 @@ export const Desktop: React.FC = () => {
         {windows.find(w => w.id === 'paint') && <PaintWindow />}
         {windows.find(w => w.id === 'gallery') && <GalleryWindow />}
         {windows.find(w => w.id === 'games-folder') && <GamesFolderWindow />}
+        {windows.find(w => w.id === 'calculator') && <CalculatorWindow />}
+        {windows.find(w => w.id === 'youtube') && <YouTubeWindow />}
         {windows.find(w => w.id === 'minesweeper') && <MinesweeperGame />}
         {windows.find(w => w.id === 'tetris') && <TetrisGame />}
         {windows.find(w => w.id === 'solitaire') && <SolitaireGame />}
@@ -125,7 +164,11 @@ export const Desktop: React.FC = () => {
         {windows.find(w => w.id === 'chess') && <ChessGame />}
 
         {/* Taskbar */}
-        <Taskbar onLock={() => setIsLocked(true)} />
+        <Taskbar 
+          onLock={() => setIsLocked(true)} 
+          onShutdown={handleShutdown}
+          onShowError={(msg) => setErrorMessage(msg)}
+        />
       </div>
     </>
   );

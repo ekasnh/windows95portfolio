@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { useWindows } from '@/contexts/WindowContext';
 import { StartMenu } from './StartMenu';
+import { Wifi } from 'lucide-react';
 
 interface TaskbarProps {
   onLock: () => void;
+  onShutdown: () => void;
+  onShowError: (message: string) => void;
 }
 
-export const Taskbar: React.FC<TaskbarProps> = ({ onLock }) => {
+export const Taskbar: React.FC<TaskbarProps> = ({ onLock, onShutdown, onShowError }) => {
   const { windows, activeWindowId, restoreWindow, focusWindow, minimizeWindow } = useWindows();
   const [isStartMenuOpen, setIsStartMenuOpen] = useState(false);
   const [time, setTime] = useState(new Date());
@@ -66,6 +69,7 @@ export const Taskbar: React.FC<TaskbarProps> = ({ onLock }) => {
             isOpen={isStartMenuOpen} 
             onClose={() => setIsStartMenuOpen(false)} 
             onLock={onLock}
+            onShutdown={onShutdown}
           />
         </div>
 
@@ -90,6 +94,13 @@ export const Taskbar: React.FC<TaskbarProps> = ({ onLock }) => {
 
         {/* System Tray */}
         <div className="win95-border-inset px-2 h-6 flex items-center gap-2 bg-[#c0c0c0]">
+          <button
+            className="hover:bg-[#d0d0d0] p-0.5 rounded-sm"
+            onClick={() => window.open('https://www.linkedin.com/in/ekansh-agarwal01/', '_blank')}
+            title="Connected to Ekansh's Network"
+          >
+            <Wifi size={12} />
+          </button>
           <span className="text-xs">
             {time.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })}
           </span>
