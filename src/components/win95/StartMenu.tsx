@@ -127,6 +127,20 @@ export const StartMenu: React.FC<StartMenuProps> = ({ isOpen, onClose, onLock, o
                   <span className="text-sm">📺</span>
                   <span className="text-sm">YouTube</span>
                 </div>
+                <div 
+                  className="win95-start-item"
+                  onClick={() => handleOpenWindow('explorer', 'My Computer', { width: 500, height: 400 })}
+                >
+                  <span className="text-sm">📁</span>
+                  <span className="text-sm">File Explorer</span>
+                </div>
+                <div 
+                  className="win95-start-item"
+                  onClick={() => handleOpenWindow('musicplayer', 'Media Player', { width: 320, height: 380 })}
+                >
+                  <span className="text-sm">🎵</span>
+                  <span className="text-sm">Media Player</span>
+                </div>
               </div>
             )}
           </div>
