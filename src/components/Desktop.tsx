@@ -89,88 +89,95 @@ export const Desktop: React.FC = () => {
         }}
         onContextMenu={handleContextMenu}
       >
-        {/* Desktop Icons - Single Column, Vertical Alignment */}
-        <div className="absolute top-3 left-3 flex flex-col gap-1">
-          <DesktopIcon
-            icon={<User size={28} className="text-white drop-shadow-lg" />}
-            label="Portfolio"
-            onDoubleClick={() => openWindow('portfolio', 'Portfolio - Ekansh Agarwal', { width: 600, height: 500 })}
-          />
-          <DesktopIcon
-            icon={<User size={28} className="text-white drop-shadow-lg" />}
-            label="About Me"
-            onDoubleClick={() => openWindow('about', 'About Me', { width: 500, height: 450 })}
-          />
-          <DesktopIcon
-            icon={<Mail size={28} className="text-white drop-shadow-lg" />}
-            label="Contact"
-            onDoubleClick={() => openWindow('contact', 'Contact', { width: 400, height: 350 })}
-          />
-          <DesktopIcon
-            icon={<FileText size={28} className="text-white drop-shadow-lg" />}
-            label="Resume"
-            onDoubleClick={handleDownloadResume}
-          />
-          <DesktopIcon
-            icon={<span className="text-2xl drop-shadow-lg">📁</span>}
-            label="Games"
-            onDoubleClick={() => openWindow('games-folder', 'Games', { width: 400, height: 350 })}
-          />
-          <DesktopIcon
-            icon={<span className="text-2xl drop-shadow-lg">📝</span>}
-            label="Notepad"
-            onDoubleClick={() => openWindow('notepad', 'Untitled - Notepad', { width: 500, height: 400 })}
-          />
-          <DesktopIcon
-            icon={<span className="text-2xl drop-shadow-lg">🎨</span>}
-            label="Paint"
-            onDoubleClick={() => openWindow('paint', 'untitled - Paint', { width: 550, height: 450 })}
-          />
-          <DesktopIcon
-            icon={<span className="text-2xl drop-shadow-lg">🖼️</span>}
-            label="Gallery"
-            onDoubleClick={() => openWindow('gallery', 'My Pictures', { width: 450, height: 400 })}
-          />
-          <DesktopIcon
-            icon={<span className="text-2xl drop-shadow-lg">🧮</span>}
-            label="Calculator"
-            onDoubleClick={() => openWindow('calculator', 'Calculator', { width: 240, height: 280 })}
-          />
-          <DesktopIcon
-            icon={<span className="text-2xl drop-shadow-lg">📺</span>}
-            label="YouTube"
-            onDoubleClick={() => openWindow('youtube', 'YouTube - Ekansh Agarwal', { width: 450, height: 400 })}
-          />
-          <DesktopIcon
-            icon={<Monitor size={28} className="text-white drop-shadow-lg" />}
-            label="Easter Egg"
-            onDoubleClick={() => setErrorMessage("Fatal Exception: You must hire me! Contact: ekanshagarwal9090@gmail.com")}
-          />
-          <DesktopIcon
-            icon={<Folder size={28} className="text-yellow-400 drop-shadow-lg" />}
-            label="My Computer"
-            onDoubleClick={() => openWindow('explorer', 'My Computer', { width: 500, height: 400 })}
-          />
-          <DesktopIcon
-            icon={<Music size={28} className="text-purple-400 drop-shadow-lg" />}
-            label="Media Player"
-            onDoubleClick={() => openWindow('musicplayer', 'Media Player', { width: 320, height: 380 })}
-          />
-          <DesktopIcon
-            icon={<Trash2 size={28} className="text-gray-300 drop-shadow-lg" />}
-            label="Recycle Bin"
-            onDoubleClick={() => openWindow('recycle-bin', 'Recycle Bin', { width: 400, height: 350 })}
-          />
-          <DesktopIcon
-            icon={<Terminal size={28} className="text-green-400 drop-shadow-lg" />}
-            label="Command Prompt"
-            onDoubleClick={() => openWindow('cmd', 'Command Prompt', { width: 500, height: 350 })}
-          />
-          <DesktopIcon
-            icon={<Globe size={28} className="text-blue-400 drop-shadow-lg" />}
-            label="Internet Explorer"
-            onDoubleClick={() => openWindow('ie', 'Internet Explorer - Resume', { width: 600, height: 500 })}
-          />
+        {/* Desktop Icons - Two Columns */}
+        <div className="absolute top-3 left-3 flex gap-1">
+          {/* First Column */}
+          <div className="flex flex-col gap-1">
+            <DesktopIcon
+              icon={<User size={28} className="text-white drop-shadow-lg" />}
+              label="Portfolio"
+              onDoubleClick={() => openWindow('portfolio', 'Portfolio - Ekansh Agarwal', { width: 600, height: 500 })}
+            />
+            <DesktopIcon
+              icon={<User size={28} className="text-white drop-shadow-lg" />}
+              label="About Me"
+              onDoubleClick={() => openWindow('about', 'About Me', { width: 500, height: 450 })}
+            />
+            <DesktopIcon
+              icon={<Mail size={28} className="text-white drop-shadow-lg" />}
+              label="Contact"
+              onDoubleClick={() => openWindow('contact', 'Contact', { width: 400, height: 350 })}
+            />
+            <DesktopIcon
+              icon={<FileText size={28} className="text-white drop-shadow-lg" />}
+              label="Resume"
+              onDoubleClick={handleDownloadResume}
+            />
+            <DesktopIcon
+              icon={<span className="text-2xl drop-shadow-lg">📁</span>}
+              label="Games"
+              onDoubleClick={() => openWindow('games-folder', 'Games', { width: 400, height: 350 })}
+            />
+            <DesktopIcon
+              icon={<span className="text-2xl drop-shadow-lg">📝</span>}
+              label="Notepad"
+              onDoubleClick={() => openWindow('notepad', 'Untitled - Notepad', { width: 500, height: 400 })}
+            />
+            <DesktopIcon
+              icon={<span className="text-2xl drop-shadow-lg">🎨</span>}
+              label="Paint"
+              onDoubleClick={() => openWindow('paint', 'untitled - Paint', { width: 550, height: 450 })}
+            />
+            <DesktopIcon
+              icon={<span className="text-2xl drop-shadow-lg">🖼️</span>}
+              label="Gallery"
+              onDoubleClick={() => openWindow('gallery', 'My Pictures', { width: 450, height: 400 })}
+            />
+            <DesktopIcon
+              icon={<span className="text-2xl drop-shadow-lg">🧮</span>}
+              label="Calculator"
+              onDoubleClick={() => openWindow('calculator', 'Calculator', { width: 240, height: 280 })}
+            />
+            <DesktopIcon
+              icon={<span className="text-2xl drop-shadow-lg">📺</span>}
+              label="YouTube"
+              onDoubleClick={() => openWindow('youtube', 'YouTube - Ekansh Agarwal', { width: 450, height: 400 })}
+            />
+            <DesktopIcon
+              icon={<Monitor size={28} className="text-white drop-shadow-lg" />}
+              label="Easter Egg"
+              onDoubleClick={() => setErrorMessage("Fatal Exception: You must hire me! Contact: ekanshagarwal9090@gmail.com")}
+            />
+            <DesktopIcon
+              icon={<Folder size={28} className="text-yellow-400 drop-shadow-lg" />}
+              label="My Computer"
+              onDoubleClick={() => openWindow('explorer', 'My Computer', { width: 500, height: 400 })}
+            />
+            <DesktopIcon
+              icon={<Music size={28} className="text-purple-400 drop-shadow-lg" />}
+              label="Media Player"
+              onDoubleClick={() => openWindow('musicplayer', 'Media Player', { width: 320, height: 380 })}
+            />
+          </div>
+          
+          {/* Second Column */}
+          <div className="flex flex-col gap-1">
+            <DesktopIcon
+              icon={<Trash2 size={28} className="text-gray-300 drop-shadow-lg" />}
+              label="Recycle Bin"
+              onDoubleClick={() => openWindow('recycle-bin', 'Recycle Bin', { width: 400, height: 350 })}
+            />
+            <DesktopIcon
+              icon={<Terminal size={28} className="text-green-400 drop-shadow-lg" />}
+              label="Command Prompt"
+              onDoubleClick={() => openWindow('cmd', 'Command Prompt', { width: 500, height: 350 })}
+            />
+            <DesktopIcon
+              icon={<Globe size={28} className="text-blue-400 drop-shadow-lg" />}
+              label="Internet Explorer"
+              onDoubleClick={() => openWindow('ie', 'Internet Explorer - Resume', { width: 600, height: 500 })}
+            />
+          </div>
         </div>
 
         {/* Context Menu */}
